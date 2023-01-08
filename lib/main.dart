@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:foodzo/controllers/popular_food_controller.dart';
 import 'package:foodzo/pages/food/popular_food_detail.dart';
 import 'package:foodzo/pages/food/recommended_food_detail_page.dart';
 import 'package:foodzo/pages/home/main_food_page.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'helper/dependencies.dart' as dep;
 
@@ -21,6 +24,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.find<PopularFoodController>().getPopularFoodList();
     // status bar and navbar color change
     // transparent status bar and colored nav bar
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
