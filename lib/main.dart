@@ -4,8 +4,14 @@ import 'package:foodzo/pages/food/popular_food_detail.dart';
 import 'package:foodzo/pages/food/recommended_food_detail_page.dart';
 import 'package:foodzo/pages/home/main_food_page.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'helper/dependencies.dart' as dep;
 
-void main() {
+Future<void> main() async {
+  // wait and make sure dependencies are loaded
+  WidgetsFlutterBinding.ensureInitialized();
+  // initialize dependencies
+  await dep.init();
+  // run app
   runApp(const MyApp());
 }
 
