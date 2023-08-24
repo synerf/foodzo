@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodzo/controllers/popular_product_controller.dart';
 import 'package:foodzo/controllers/recommended_product_controller.dart';
+import 'package:foodzo/pages/cart/cart_page.dart';
 import 'package:foodzo/routes/route_helper.dart';
 import 'package:foodzo/utils/app_constants.dart';
 import 'package:foodzo/utils/colors.dart';
@@ -42,7 +43,12 @@ class RecommendedFoodDetail extends StatelessWidget {
                 GetBuilder<PopularProductController>(builder: (controller) {
                   return Stack(
                     children: [
-                      AppIcon(icon: Icons.shopping_cart_outlined),
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => CartPage());
+                        },
+                        child: AppIcon(icon: Icons.shopping_cart_outlined),
+                      ),
                       Get.find<PopularProductController>().totalItems >= 1
                           ? Positioned(
                               right: 0,

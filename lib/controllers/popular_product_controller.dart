@@ -5,6 +5,8 @@ import 'package:foodzo/models/products_model.dart';
 import 'package:foodzo/utils/colors.dart';
 import 'package:get/get.dart';
 
+import '../models/cart_model.dart';
+
 class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;
 
@@ -91,5 +93,9 @@ class PopularProductController extends GetxController {
 
   int get totalItems {
     return _cart.totalItems;
+  }
+
+  List<CartModel> get getItems {
+    return _cart.getItems;
   }
 }
